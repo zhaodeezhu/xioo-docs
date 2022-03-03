@@ -133,14 +133,14 @@ const EngineDemo = () => {
       // currentEngine.current.command.execute('drawio', ioData);
 
       // // 编辑
-      if(currentXmlData.current) {
+      if (currentXmlData.current) {
         const card = currentEngine.current.card.getSingleSelectedCard(currentEngine.current.change.range.get());
         console.log(card);
         currentEngine.current.card.remove(card.root);
         currentEngine.current.command.execute('drawio', ioData);
         // currentEngine.current.card.replace(card, 'drawio', ioData);
       } else {
-         // 新增
+        // 新增
         currentEngine.current.command.execute('drawio', ioData);
       }
       setDrawVisible(false);
@@ -153,7 +153,7 @@ const EngineDemo = () => {
     currentXmlData.current = data;
     console.log(data);
     const card = currentEngine.current.card.getSingleSelectedCard(currentEngine.current.change.range.get());
-    if(!card) {
+    if (!card) {
       return;
     }
     console.log(card);
@@ -232,46 +232,48 @@ const EngineDemo = () => {
   }
 
   return (
-    <>
+    <div className="xioo-editor">
       <div className="doc-drawio" style={{ top: `${drawVisible ? 0 : '-100%'}` }}>
         <iframe src="https://drawio.xiooshow.com/webapp" onLoad={handleOnlod} ref={DrawioFrame}></iframe>
         {/* <iframe src="http://localhost:2008?dev=1" ></iframe> */}
       </div>
-      {/* <button onClick={handleTest}>获取数据</button> */}
-      {engine && <Toolbar engine={engine} items={[
-        [
-          {
-            type: 'collapse',
-            groups: [
-              {
-                items: [
-                  { name: 'drawio', type: 'button', icon: <WorkflowIcon />, title: '绘图', onClick: handleAddDrawio },
-                  { name: 'codeblock' },
-                  { name: 'table' },
-                  { name: 'file-uploader' },
-                  { name: 'video-uploader' },
-                  { name: 'math' },
-                  { name: 'status' }
-                ],
-              },
-            ],
-          }
-        ],
-        ['undo', 'redo', 'paintformat', 'removeformat'],
-        ['heading', 'fontfamily', 'fontsize'],
-        ['bold', 'italic', 'strikethrough', 'underline', 'moremark'],
-        ['fontcolor', 'backcolor'],
-        ['alignment'],
-        [
-          'unorderedlist',
-          'orderedlist',
-          'tasklist',
-          'indent',
-          'line-height',
-        ],
-        ['link', 'quote', 'hr']]} />}
-      <div style={{ height: 400 }} ref={ref} />
-    </>
+
+      <div style={{padding: '0 16px'}}>
+        {engine && <Toolbar engine={engine} items={[
+          [
+            {
+              type: 'collapse',
+              groups: [
+                {
+                  items: [
+                    { name: 'drawio', type: 'button', icon: <WorkflowIcon />, title: '绘图', onClick: handleAddDrawio },
+                    { name: 'codeblock' },
+                    { name: 'table' },
+                    { name: 'file-uploader' },
+                    { name: 'video-uploader' },
+                    { name: 'math' },
+                    { name: 'status' }
+                  ],
+                },
+              ],
+            }
+          ],
+          ['undo', 'redo', 'paintformat', 'removeformat'],
+          ['heading', 'fontfamily', 'fontsize'],
+          ['bold', 'italic', 'strikethrough', 'underline', 'moremark'],
+          ['fontcolor', 'backcolor'],
+          ['alignment'],
+          [
+            'unorderedlist',
+            'orderedlist',
+            'tasklist',
+            'indent',
+            'line-height',
+          ],
+          ['link', 'quote', 'hr']]} />}
+        <div style={{ height: 400 }} ref={ref} />
+      </div>
+    </div>
   );
 };
 

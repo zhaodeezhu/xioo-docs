@@ -16,7 +16,7 @@ class App extends Component<any> {
 
   render() {
     return (
-      <div style={{padding: '0px 16px'}}>
+      <div>
         <Docs />
       </div>
     );
