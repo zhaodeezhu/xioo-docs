@@ -70,7 +70,7 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 		console.log('我是入参')
         console.log(this.getValue());
 		this.getCenter().addClass('card-hr');
-		return `<div><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="${this.getValue().data}"></div></div>`;
+		return `<div id=${this.getValue().id}><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="${this.getValue().data}"></div></div>`;
 	}
 }
 export default Drawio;
