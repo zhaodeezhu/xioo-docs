@@ -233,7 +233,7 @@ const EngineDemo = () => {
 
   return (
     <>
-      <div className="doc-drawio" style={{ display: `${drawVisible ? 'block' : 'none'}` }}>
+      <div className="doc-drawio" style={{ top: `${drawVisible ? 0 : '-100%'}` }}>
         <iframe src="https://drawio.xiooshow.com/webapp" onLoad={handleOnlod} ref={DrawioFrame}></iframe>
         {/* <iframe src="http://localhost:2008?dev=1" ></iframe> */}
       </div>
