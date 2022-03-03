@@ -1,5 +1,10 @@
 # xioo-docs
 
+## feat
+
+- 已完成逆向流程，就是新建图以后的编辑，前提是需要先选中卡片再点击编辑
+- 新建绘图已经去除开始的时候选择本地源的弹窗，直接进入到模板选择页面
+
 ## 概述
 
 将[am-editor](https://github.com/red-axe/am-editor)和[drawio](https://github.com/jgraph/drawio)结合起来，来弥补am-editor没有流程图绘制功能的不足。
