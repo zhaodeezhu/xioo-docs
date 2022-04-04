@@ -1,8 +1,10 @@
 # xioo-docs
 
+[![drawio node服务](https://img.shields.io/badge/xioo-draw--node-orange)](https://github.com/zhaodeezhu/drawio-node) [![am-editor](https://img.shields.io/badge/-am--aditor-blue)](https://github.com/red-axe/am-editor) [![xioo](https://img.shields.io/badge/-xioo-green)](https://github.com/zhaodeezhu/xioo)
+
 ## feat
 
-- 已完成逆向流程，就是新建图以后的编辑，前提是需要先选中卡片再点击编辑
+- 已完成逆向流程，就是新建图以后的编辑，前提是需要先选中卡片再点击卡片上的编辑图标
 - 新建绘图已经去除开始的时候选择本地源的弹窗，直接进入到模板选择页面
 
 ## 概述
