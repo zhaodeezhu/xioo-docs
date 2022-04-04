@@ -1,6 +1,6 @@
 # xioo-docs
 
-[![drawio node服务](https://img.shields.io/badge/xioo-draw--node-orange)](https://github.com/zhaodeezhu/drawio-node) [![am-editor](https://img.shields.io/badge/-am--aditor-blue)](https://github.com/red-axe/am-editor) [![xioo](https://img.shields.io/badge/-xioo-green)](https://github.com/zhaodeezhu/xioo)
+[![drawio node服务](https://img.shields.io/badge/xioo-draw--node-orange)](https://github.com/zhaodeezhu/drawio-node) [![am-editor](https://img.shields.io/badge/-am--aditor-blue)](https://github.com/red-axe/am-editor) [![xioo](https://img.shields.io/badge/-xioo-green)]() [![体验地址](https://img.shields.io/badge/%E4%BD%93%E9%AA%8C-xioo--doc-yellowgreen)](https://doc.xiooshow.com/)
 
 ## feat
 
@@ -13,7 +13,7 @@
 
 体验地址：
 
-[xioo-docs](https://doc.xiooshow.com/) 
+[xioo-docs](https://doc.xiooshow.com/)
 
 服务器资源有限，首次加载可能会比较慢请大家耐心等待。
 
