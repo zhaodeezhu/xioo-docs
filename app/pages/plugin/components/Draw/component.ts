@@ -1,4 +1,5 @@
 import {
+	$,
 	Card,
 	CardToolbarItemOptions,
 	CardType,
@@ -34,12 +35,37 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 			{
 				type: 'dnd',
 			},
-			{
-				type: 'copy',
-			},
+			// {
+			// 	type: 'copy',
+			// },
 			{
 				type: 'delete',
 			},
+			{
+				type: 'node',
+				node: $('<i class="iconfont icon-a-24-bianji"></i>'),
+				didMount: (node) => {
+					node.on('click', () => {
+						console.log('我执行了----');
+						console.log(node);
+						// const data = this.getValue().data;
+						// console.log(data);
+						const attr = document.getElementById(this.getValue().id).getElementsByClassName('geDiagramContainer')[0].getAttribute('data-mxgraph');
+						
+						const data = JSON.parse(attr);
+						console.log(data);
+						var viewerEditEvent = new CustomEvent('viewerEditEvent', {
+							detail: data
+						})
+						if(window.dispatchEvent) {  
+							window.dispatchEvent(viewerEditEvent);
+						} else {
+							// @ts-ignore
+							window.fireEvent(viewerEditEvent);
+						}
+					});
+				},
+			}
 		];
 	}
 
