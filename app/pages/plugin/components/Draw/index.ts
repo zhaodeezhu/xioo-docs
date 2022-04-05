@@ -53,7 +53,7 @@ export default class<T extends DrawioOptions = DrawioOptions> extends Plugin<T> 
             if(divs.length === 0) return;
             const div = divs[divs.length - 1];
             console.log(div);
-            window['GraphViewer'].createViewerForElement(div);
+            // const graph = window['GraphViewer'].createViewerForElement(div);
         }, 200)
 	}
 

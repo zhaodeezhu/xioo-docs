@@ -188,8 +188,9 @@ const EngineDemo = () => {
       // console.log(`value:${value}`);
     });
     setTimeout(() => {
-      window['GraphViewer'].processElements();
+      // window['GraphViewer'].processElements();
     }, 100)
+    engine.setValue(`<card type="block" name="drawio" editable="false" value="data:%7B%22data%22%3A%22%7B%26quot%3Bhighlight%26quot%3B%3A%26quot%3B%230000ff%26quot%3B%2C%26quot%3Bnav%26quot%3B%3Atrue%2C%26quot%3Bresize%26quot%3B%3Atrue%2C%26quot%3Bxml%26quot%3B%3A%26quot%3B%26lt%3Bmxfile%20host%3D%5C%5C%26quot%3Bdrawio.xiooshow.com%5C%5C%26quot%3B%20modified%3D%5C%5C%26quot%3B2022-04-05T02%3A46%3A33.277Z%5C%5C%26quot%3B%20agent%3D%5C%5C%26quot%3B5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F99.0.4844.84%20Safari%2F537.36%5C%5C%26quot%3B%20etag%3D%5C%5C%26quot%3BNefVZ_gNv1VrF86LQISO%5C%5C%26quot%3B%20version%3D%5C%5C%26quot%3B16.5.6%5C%5C%26quot%3B%20type%3D%5C%5C%26quot%3Bdevice%5C%5C%26quot%3B%26gt%3B%26lt%3Bdiagram%20id%3D%5C%5C%26quot%3B5mNoF0H2RYBwVhFh1BAY%5C%5C%26quot%3B%20name%3D%5C%5C%26quot%3B%E7%AC%AC%201%20%E9%A1%B5%5C%5C%26quot%3B%26gt%3BtZRNb5wwEIZ%2FDcdWYO9H9prNtk2Vj6p7SHv04gm4MQwyZoH%2B%2Bpr1AItQNq2UShyYxzP2%2BH1tB3ybNZ%2BNKNJ7lKADFsom4DcBY9GCsaD7Qtl6sggXHiRGSUoawV79BoIh0UpJKCeJFlFbVUxhjHkOsZ0wYQzW07Rn1NNVC5HADOxjoef0SUmbenrF1iP%2FAipJ%2B5Wj1caPZKJPpp2UqZBYnyG%2BC%2FjWIFr%2FlzVb0J14vS6%2B7tMro0NjBnL7NwWr5fP14WGz%2FhpydvukH8vd9%2BwDp95s228YpNs%2FhWhsignmQu9Gem2wyiV0s4YuGnPuEAsHIwd%2FgbUtmSkqiw6lNtM06ho27Y%2Bu%2FmPE%2B%2FjnKV6v%2B%2FimoQV81J5H38CoDCwYgn4TXeevakOoxMrEcEGQ%2FowJk4C9kMcGB93RB3TdmNbVGdDCquO0D0FnMBnyRpvcDzn1D67RvEehK1ppZqM7bUX3G7daObdMp3OdKgv7QpwEqN19ndpy8L7eHQYg4pfk5PZjZd00QLz0xkbLQfojGAvNZfHnYvUFnG5I2z8aFNfjhVsRSs%2Fu2lX4n%2BRlb8vrZnEvUHcbBqE1VvJtkd9Br%2BViqtdmLlfE3kcvF44P1Gns7Jnnuz8%3D%26lt%3B%2Fdiagram%26gt%3B%26lt%3B%2Fmxfile%26gt%3B%26quot%3B%2C%26quot%3Btoolbar%26quot%3B%3A%26quot%3Bpages%20zoom%20layers%20lightbox%26quot%3B%2C%26quot%3Bpage%26quot%3B%3A0%7D%22%2C%22id%22%3A%2226zYO%22%2C%22type%22%3A%22block%22%7D"></card>`)
     //设置引擎实例
     setEngine(engine);
     currentEngine.current = engine;
@@ -231,13 +232,18 @@ const EngineDemo = () => {
     }
   }
 
+  const getValue = () => {
+    const value = currentEngine.current.getValue();
+    console.log(value);
+  }
+
   return (
     <div className="xioo-editor">
       <div className="doc-drawio" style={{ top: `${drawVisible ? 0 : '-100%'}` }}>
         <iframe src="https://drawio.xiooshow.com/webapp" onLoad={handleOnlod} ref={DrawioFrame}></iframe>
         {/* <iframe src="http://localhost:2008?dev=1" ></iframe> */}
       </div>
-
+      
       <div style={{padding: '0 16px'}}>
         {engine && <Toolbar engine={engine} items={[
           [

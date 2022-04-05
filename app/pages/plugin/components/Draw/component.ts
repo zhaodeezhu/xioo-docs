@@ -29,6 +29,8 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 		return SelectStyleType.BACKGROUND;
 	}
 
+  viewer: any;
+
 	toolbar(): Array<ToolbarItemOptions | CardToolbarItemOptions> {
 		if (!isEngine(this.editor) || this.editor.readonly) return [];
 		return [
@@ -38,22 +40,51 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 			// {
 			// 	type: 'copy',
 			// },
-			{
-				type: 'delete',
+      {
+				type: 'node',
+				node: $('<i class="iconfont icon-zoom-out draw-card-icon"></i>'),
+				didMount: (node) => {
+					node.on('click', () => {
+						this.viewer.graph.zoomIn();
+					});
+				},
+			},
+      {
+				type: 'node',
+				node: $('<i class="iconfont icon-zoom-in draw-card-icon"></i>'),
+				didMount: (node) => {
+					node.on('click', () => {
+						this.viewer.graph.zoomOut();
+					});
+				},
+			},
+      {
+				type: 'node',
+				node: $('<i class="iconfont icon-fangda draw-card-icon"></i>'),
+				didMount: (node) => {
+					node.on('click', () => {
+						this.viewer.showLightbox();
+					});
+				},
+			},
+      {
+				type: 'node',
+				node: $('<i class="iconfont icon-size-original-s-o draw-card-icon"></i>'),
+				didMount: (node) => {
+					node.on('click', () => {
+						this.viewer.graph.view.scaleAndTranslate(this.viewer.graph.initialViewState.scale,
+              this.viewer.graph.initialViewState.translate.x,
+              this.viewer.graph.initialViewState.translate.y);
+					});
+				},
 			},
 			{
 				type: 'node',
-				node: $('<i class="iconfont icon-a-24-bianji"></i>'),
+				node: $('<i class="iconfont icon-a-21-xiugai draw-card-icon"></i>'),
 				didMount: (node) => {
 					node.on('click', () => {
-						console.log('我执行了----');
-						console.log(node);
-						// const data = this.getValue().data;
-						// console.log(data);
 						const attr = document.getElementById(this.getValue().id).getElementsByClassName('geDiagramContainer')[0].getAttribute('data-mxgraph');
-						
 						const data = JSON.parse(attr);
-						console.log(data);
 						var viewerEditEvent = new CustomEvent('viewerEditEvent', {
 							detail: data
 						})
@@ -65,7 +96,10 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 						}
 					});
 				},
-			}
+			},
+      {
+				type: 'delete',
+			},
 		];
 	}
 
@@ -92,11 +126,27 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 		this.onSelectByOther(activated, value);
 	}
 
+  init() {
+    console.log('被初始化了------->');
+    setTimeout(() => {
+      const div = document.getElementById(this.getValue().id).getElementsByClassName('mxgraph')[0];
+      console.log(div);
+      const graph = window['GraphViewer'].createViewerForElement(div, (viewer) => {
+        this.viewer = viewer;
+        console.log(viewer);
+      }, true);
+      console.log(graph);
+    }, 100)
+  }
+
 	render() {
-		console.log('我是入参')
-        console.log(this.getValue());
 		this.getCenter().addClass('card-hr');
-		return `<div id=${this.getValue().id}><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="${this.getValue().data}"></div></div>`;
+		return `
+      <div class="draw-box">
+        <div class="draw-box-select"><i class="iconfont icon-a-4-shezhi"></i></div>
+        <div id=${this.getValue().id}><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="${this.getValue().data}"></div></div>
+      </div>
+    `;
 	}
 }
 export default Drawio;

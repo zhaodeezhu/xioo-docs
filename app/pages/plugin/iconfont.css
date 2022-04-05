@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1649060944225') format('truetype');
+  src: url('iconfont.ttf?t=1649126462628') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fangda:before {
+  content: "\e63d";
+}
+
+.icon-size-original-s-o:before {
+  content: "\e793";
+}
+
+.icon-zoom-in:before {
+  content: "\e683";
+}
+
+.icon-zoom-out:before {
+  content: "\e684";
 }
 
 .icon-a-4-shezhi:before {
