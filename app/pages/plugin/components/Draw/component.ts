@@ -141,9 +141,9 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 
 	render() {
 		this.getCenter().addClass('card-hr');
+    // <div class="draw-box-select"><i class="iconfont icon-a-4-shezhi"></i></div>
 		return `
       <div class="draw-box">
-        <div class="draw-box-select"><i class="iconfont icon-a-4-shezhi"></i></div>
         <div id=${this.getValue().id}><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="${this.getValue().data}"></div></div>
       </div>
     `;
