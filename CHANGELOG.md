@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/zhaodeezhu/xioo-docs/compare/v1.1.0...v1.2.0) (2022-04-05)
+
+
+### Features
+
+* 🚀 自定义toolbar ([b83f141](https://github.com/zhaodeezhu/xioo-docs/commit/b83f1412757377fe789cbccb2fd0eab7f2ac72c4))
+
+
+### Bug Fixes
+
+* 🐛 修改编辑图标size ([9ea16a5](https://github.com/zhaodeezhu/xioo-docs/commit/9ea16a56da1a341821d008f29bd5cef035a9eb3f))
+
 ## 1.1.0 (2022-04-04)
 
 
