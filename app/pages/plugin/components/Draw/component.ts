@@ -8,7 +8,7 @@ import {
 	SelectStyleType,
 	CardValue,
 } from '@aomao/engine';
-import './index.css';
+import './index.less';
 export interface DrawioValue extends CardValue {
 	data?: any;
 }
