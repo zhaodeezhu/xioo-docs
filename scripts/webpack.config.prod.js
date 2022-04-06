@@ -70,7 +70,12 @@ module.exports = {
             }
           },
           {
-            loader: 'less-loader'
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              }
+            }
           },
           {
             loader: require.resolve('sass-resources-loader'),
