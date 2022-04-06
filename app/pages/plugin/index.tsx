@@ -175,7 +175,7 @@ const EngineDemo = () => {
       plugins: plugins,
       cards: cards,
       config: configs,
-      // readonly: true
+      readonly: true
     });
     // console.log(engine.)
     //设置编辑器值

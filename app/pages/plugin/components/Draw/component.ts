@@ -31,6 +31,13 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 
   viewer: any;
 
+  /** 将图全屏显示 */
+  graphRecover() {
+    this.viewer.graph.view.scaleAndTranslate(this.viewer.graph.initialViewState.scale,
+      this.viewer.graph.initialViewState.translate.x,
+      this.viewer.graph.initialViewState.translate.y);
+  }
+
 	toolbar(): Array<ToolbarItemOptions | CardToolbarItemOptions> {
     const baseTool: any = [
       {
@@ -65,9 +72,7 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 				node: $('<i class="iconfont icon-size-original-s-o draw-card-icon"></i>'),
 				didMount: (node) => {
 					node.on('click', () => {
-						this.viewer.graph.view.scaleAndTranslate(this.viewer.graph.initialViewState.scale,
-              this.viewer.graph.initialViewState.translate.x,
-              this.viewer.graph.initialViewState.translate.y);
+						this.graphRecover();
 					});
 				},
 			},
@@ -137,6 +142,11 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
         this.viewer = viewer;
         console.log(viewer);
       }, true);
+      if(!isEngine(this.editor) || this.editor.readonly) {
+        document.getElementById(this.getValue().id).getElementsByClassName('geDiagramContainer')[0].addEventListener('click', () => {
+          this.viewer.showLightbox();
+        })
+      }
     }, 100)
   }
 
