@@ -91,6 +91,11 @@ module.exports.webpackConfig = {
           },
           {
             loader: require.resolve('less-loader'), // compiles Less to CSS
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              }
+            }
           },
           {
             loader: require.resolve('sass-resources-loader'),

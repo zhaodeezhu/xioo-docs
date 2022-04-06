@@ -25,6 +25,22 @@
   }
 }
 
+.am-engine {
+  .card-draw {
+    transition: .2s;
+    &:hover {
+      background-color: #f4f4f4;
+    }
+    &.draw-activated {
+      [data-card-element="center"].data-card-background-selected {
+        background: rgba(27, 162, 227, 0.2);
+      }
+    }
+  }
+  
+}
+
+
 /* .am-engine .card-hr,.am-engine-view .card-hr {
     border: 1px solid transparent;
     padding: 18px 0;

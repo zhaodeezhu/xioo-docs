@@ -32,14 +32,7 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
   viewer: any;
 
 	toolbar(): Array<ToolbarItemOptions | CardToolbarItemOptions> {
-		if (!isEngine(this.editor) || this.editor.readonly) return [];
-		return [
-			{
-				type: 'dnd',
-			},
-			// {
-			// 	type: 'copy',
-			// },
+    const baseTool: any = [
       {
 				type: 'node',
 				node: $('<i class="iconfont icon-zoom-out draw-card-icon"></i>'),
@@ -78,6 +71,13 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 					});
 				},
 			},
+    ]
+		if (!isEngine(this.editor) || this.editor.readonly) return [...baseTool];
+		return [
+			{
+				type: 'dnd',
+			},
+      ...baseTool,
 			{
 				type: 'node',
 				node: $('<i class="iconfont icon-a-21-xiugai draw-card-icon"></i>'),
@@ -98,6 +98,9 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 				},
 			},
       {
+				type: 'copy',
+			},
+      {
 				type: 'delete',
 			},
 		];
@@ -105,7 +108,7 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 
 	onActivate(activated: boolean) {
 		super.onActivate(activated);
-		const activatedClass = 'hr-activated';
+		const activatedClass = 'draw-activated';
 		const center = this.getCenter();
 		if (activated) {
 			center.addClass(activatedClass);
@@ -127,20 +130,18 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
 	}
 
   init() {
-    console.log('被初始化了------->');
     setTimeout(() => {
       const div = document.getElementById(this.getValue().id).getElementsByClassName('mxgraph')[0];
-      console.log(div);
-      const graph = window['GraphViewer'].createViewerForElement(div, (viewer) => {
+      if(!div) return;
+      window['GraphViewer'].createViewerForElement(div, (viewer) => {
         this.viewer = viewer;
         console.log(viewer);
       }, true);
-      console.log(graph);
     }, 100)
   }
 
 	render() {
-		this.getCenter().addClass('card-hr');
+		this.getCenter().addClass('card-draw');
     // <div class="draw-box-select"><i class="iconfont icon-a-4-shezhi"></i></div>
 		return `
       <div class="draw-box">
