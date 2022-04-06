@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/zhaodeezhu/xioo-docs/compare/v1.2.0...v1.3.0) (2022-04-06)
+
+
+### Features
+
+* 🚀 添加只读时可点击图全屏查看 ([e4bac3e](https://github.com/zhaodeezhu/xioo-docs/commit/e4bac3edf1ad221a82c9b7bd01a0e226e5f2a823))
+* 🚀 修改初始图样 ([e6cb194](https://github.com/zhaodeezhu/xioo-docs/commit/e6cb194bcb1afce946eddb054ff86c04cb27d9a8))
+* 🚀 增加复制功能 ([9d7d29a](https://github.com/zhaodeezhu/xioo-docs/commit/9d7d29a328796ef394812b70885b619c6da90e47))
+
+
+### Bug Fixes
+
+* 🐛 去除设置图标 ([890eb56](https://github.com/zhaodeezhu/xioo-docs/commit/890eb5672991bd9b81cf8ea839a4edcf58dcdf16))
+* 🐛 去除只读 ([9d4d516](https://github.com/zhaodeezhu/xioo-docs/commit/9d4d51617cff5a1bf4ee0b345f6a635474b17d56))
+* 🐛 图中字体也会被选中的问题 ([7069d17](https://github.com/zhaodeezhu/xioo-docs/commit/7069d179e157e7bfe036739426eb5379567e6df1))
+* 🐛 修改drawio地址 ([6157a00](https://github.com/zhaodeezhu/xioo-docs/commit/6157a004f1d741c8864f16e2b255de298d1f414e))
+
 ## [1.2.0](https://github.com/zhaodeezhu/xioo-docs/compare/v1.1.0...v1.2.0) (2022-04-05)
 
 
