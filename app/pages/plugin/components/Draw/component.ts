@@ -142,11 +142,11 @@ class Drawio<T extends DrawioValue = DrawioValue> extends Card<T> {
         this.viewer = viewer;
         console.log(viewer);
       }, true);
-      if(!isEngine(this.editor) || this.editor.readonly) {
-        document.getElementById(this.getValue().id).getElementsByClassName('geDiagramContainer')[0].addEventListener('click', () => {
+      document.getElementById(this.getValue().id).getElementsByClassName('geDiagramContainer')[0].addEventListener('click', () => {
+        if(!isEngine(this.editor) || this.editor.readonly) {
           this.viewer.showLightbox();
-        })
-      }
+        }
+      })
     }, 100)
   }
 
