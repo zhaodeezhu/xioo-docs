@@ -53,6 +53,10 @@ const WorkflowIcon = () => {
   )
 }
 
+const ReadWriteIcon = () => {
+  return <span className="iconfont icon-a-53-biaoqian"></span>
+}
+
 const plugins = [
   CodeBlock,
   Bold,
@@ -238,6 +242,11 @@ const EngineDemo = () => {
     console.log(value);
   }
 
+  const handleReadWrite = () => {
+    engine.readonly = !engine.readonly;
+    return false;
+  }
+
   return (
     <div className="xioo-editor">
       <div className="doc-drawio" style={{ top: `${drawVisible ? 0 : '-100%'}` }}>
@@ -263,7 +272,8 @@ const EngineDemo = () => {
                   ],
                 },
               ],
-            }
+            },
+            { name: 'readwrite', onDisabled: () => false, type: 'button', icon: <ReadWriteIcon />, title: '读写切换', onClick: handleReadWrite },
           ],
           ['undo', 'redo', 'paintformat', 'removeformat'],
           ['heading', 'fontfamily', 'fontsize'],
