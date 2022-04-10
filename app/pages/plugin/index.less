@@ -22,7 +22,22 @@
     left: 0px;
     z-index: 1000;
   }
-  
+  .draw-loading {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 38px;
+    background-color: #71D19A;
+    width: 100%;
+    z-index: 2000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.success {
+      animation: hide 1s forwards;
+    }
+  }
 }
 
 .workflow-icon {
@@ -32,4 +47,17 @@
   border-radius: 1px;
   // margin: 4px 0px;
   margin-bottom: 4px;
+}
+
+@keyframes hide {
+  0% {
+    top: 0;
+  }
+  90% {
+    top: -38px;
+  }
+  100% {
+    top: -38px;
+    display: none;
+  }
 }

@@ -125,6 +125,8 @@ const EngineDemo = () => {
   const [content, setContent] = useState<string>(
     'hello word',
   );
+  /** drawio正在加载中 */
+  const [drawLoading, setDrawLoading] = useState<boolean>(true);
 
   const [drawVisible, setDrawVisible] = useState<boolean>(false);
   const currentEngine = useRef<Engine>();
@@ -228,13 +230,7 @@ const EngineDemo = () => {
   }
 
   const handleOnlod = () => {
-    if (currentXmlData.current) {
-      // DrawioFrame.current.contentWindow.postMessage({
-      //   type: 'edit',
-      //   xml: currentXmlData.current,
-      //   title: '测试.html'
-      // }, '*')
-    }
+    setDrawLoading(false);
   }
 
   const getValue = () => {
@@ -249,6 +245,7 @@ const EngineDemo = () => {
 
   return (
     <div className="xioo-editor">
+      <div className={`draw-loading ${drawLoading ? '' : 'success'}`}>绘图工具正在加载中，请稍后在进行操作...</div>
       <div className="doc-drawio" style={{ top: `${drawVisible ? 0 : '-100%'}` }}>
         <iframe src="https://drawio.xiooshow.com/webapp" onLoad={handleOnlod} ref={DrawioFrame}></iframe>
         {/* <iframe src="http://localhost:2008?dev=1" ></iframe> */}
