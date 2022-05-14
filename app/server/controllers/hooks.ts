@@ -2,9 +2,17 @@ import { Controller, Route, Post } from 'xioo';
 import child_process from 'child_process';
 
 async function exec(commond?, params?, cwd = process.cwd()) {
-  const ls = child_process.spawn(commond, params, {
-    cwd: cwd
-  })
+  console.log(process.cwd())
+
+  let ls = null;
+  try {
+    ls = child_process.spawn(commond, params, {
+      cwd: cwd
+    })
+  } catch(e) {
+    console.log(e);
+    return -1;
+  }
 
   return new Promise((resolve, reject) => {
     ls.stdout.on('data', (data) => {
