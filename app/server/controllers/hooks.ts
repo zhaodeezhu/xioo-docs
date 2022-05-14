@@ -56,7 +56,7 @@ export default class Hooks extends Controller {
     function appBuild() {
       const func = funcs.shift();
       if (!func) {
-        console.log('构建成功---------------->') 
+        console.log('构建成功------------------>') 
         return;
       }
       exec(...func).then(res => {
