@@ -50,7 +50,7 @@ export default class Hooks extends Controller {
       }
       exec(...func).then(res => {
         if(res !== 0) {
-          console.log('异常终止----------->')
+          console.log('异常终止---------------->')
           return;
         }
         appBuild();
