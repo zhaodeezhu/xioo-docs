@@ -50,8 +50,7 @@ export default class Hooks extends Controller {
       ['npm', ['i']],
       ['npm', ['run', 'server:build']],
       ['npm', ['run', 'view:build']],
-      ['npm', ['run', 'stop']],
-      ['npm', ['run', 'start']]
+      ['npm', ['run', 'restart']]
     ]
     function appBuild() {
       const func = funcs.shift();
