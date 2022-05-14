@@ -27,8 +27,20 @@ export default class Hooks extends Controller {
   async getTest() {
     const { ctx } = this;
     console.log(ctx.headers);
+    const authToken = ctx.headers['x-auth-token'];
+    if (authToken !== '123456') {
+      return {
+        status: -1,
+        message: '未构建'
+      }
+    }
     const funcs = [
-      ['ls', ['-l'], process.cwd()]
+      ['git', ['pull']],
+      ['npm', ['install']],
+      ['npm', ['run', 'server:build']],
+      ['npm', ['run', 'view:build']],
+      ['npm', ['run', 'stop']],
+      ['npm', ['run', 'start']]
     ]
     function appBuild() {
       const func = funcs.shift();
