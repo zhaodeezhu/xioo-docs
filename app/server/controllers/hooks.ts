@@ -17,6 +17,9 @@ async function exec(commond?, params?, cwd = process.cwd()) {
       console.log(`child process exited with code ${code}`);
       resolve(code);
     });
+    ls.on('error', (error) => {
+      console.log(error);
+    })
   })
 }
 
@@ -36,7 +39,7 @@ export default class Hooks extends Controller {
     }
     const funcs = [
       ['git', ['pull']],
-      ['npm', ['install']],
+      ['npm', ['i']],
       ['npm', ['run', 'server:build']],
       ['npm', ['run', 'view:build']],
       ['npm', ['run', 'stop']],
