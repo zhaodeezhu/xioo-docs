@@ -4,6 +4,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 const projectRoot = process.cwd();
 module.exports = {
@@ -14,28 +15,47 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(projectRoot, './package/public'),
-    filename: 'js/[name].[chunkhash:8].js',
+    filename: 'js/[name].[contenthash:8].js',
     publicPath: '/',
     clean: true,
     library: `qiankun-[name]`,
     libraryTarget: 'umd',
   },
+  cache: {
+    type: 'filesystem',
+    allowCollectingMemory: true,
+  },
   module: {
     rules: [
-      {
-        test: /bootstrap\.tsx$/,
-        loader: "bundle-loader",
-        options: {
-          lazy: true,
-        },
-      },
+      // {
+      //   test: /bootstrap\.tsx$/,
+      //   use: [
+      //     {
+      //       loader: "bundle-loader",
+      //       options: {
+      //         lazy: true,
+      //       },
+      //     }
+      //   ]
+      // },
       {
         test: /\.tsx?/,
-        loader: 'ts-loader',
-        options: {
-          // disable type checker - we will use it in fork plugin
-          transpileOnly: true,
-        },
+        use: [
+          {
+            loader: 'thread-loader',
+            options: {
+              // workers: 3
+            }
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              // disable type checker - we will use it in fork plugin
+              transpileOnly: true,
+              happyPackMode: true
+            },
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -131,9 +151,10 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin(),
     new webpack.ProgressPlugin(),
+    // new WebpackBundleAnalyzer(),
     new miniCssExtractPlugin({
-      filename: "css/[name][hash].css",////都提到build目录下的css目录中
-      chunkFilename: "css/[name][hash].css"
+      filename: "css/[name][contenthash].css",////都提到build目录下的css目录中
+      chunkFilename: "css/[name][contenthash].css"
     })
   ],
   optimization: {
@@ -147,6 +168,8 @@ module.exports = {
       new TerserPlugin({
         parallel: true,
         exclude: /node_modules/,
+        // cache: true,
+        extractComments: true,
         terserOptions: {
           compress: {
           }

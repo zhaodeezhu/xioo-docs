@@ -23,13 +23,13 @@ module.exports.webpackConfig = {
   },
   module: {
     rules: [
-      {
-        test: /bootstrap\.tsx$/,
-        loader: "bundle-loader",
-        options: {
-          lazy: true,
-        },
-      },
+      // {
+      //   test: /bootstrap\.tsx$/,
+      //   loader: "bundle-loader",
+      //   options: {
+      //     lazy: true,
+      //   },
+      // },
       {
         test: /\.tsx?/,
         loader: 'ts-loader',

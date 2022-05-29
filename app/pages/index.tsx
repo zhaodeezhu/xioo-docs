@@ -1,4 +1,5 @@
 // @ts-ignore
-import bootstrap from "./bootstrap";
+// import bootstrap from "./bootstrap";
 // @ts-ignore
-bootstrap && bootstrap(() => {});
+// bootstrap && bootstrap(() => {});
+import('./bootstrap');
