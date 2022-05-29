@@ -80,6 +80,7 @@
     "cz-conventional-changelog": "3.3.0",
     "file-loader": "6.2.0",
     "friendly-errors-webpack-plugin": "1.7.0",
+    "git-cz": "^4.9.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "5.3.1",
     "less": "4.1.2",
@@ -104,7 +105,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/git-cz"
     }
   }
 }
