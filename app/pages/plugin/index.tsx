@@ -151,6 +151,9 @@ const EngineDemo = () => {
       }
       setDrawVisible(false);
     }
+    if (data.type === 'drawio-cancel') {
+      setDrawVisible(false);
+    }
   })
   const DrawioFrame = useRef<any>();
 
