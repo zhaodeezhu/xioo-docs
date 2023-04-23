@@ -1,0 +1,5 @@
+.vscode
+build
+node_modules
+package
+app/public/pdf/*.pdf

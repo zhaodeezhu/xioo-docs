@@ -1,0 +1,23 @@
+{
+  "watch": [
+    "*.js",
+    "*.ts",
+    "*.tsx",
+    "*.json"
+  ],
+  "ext": "ts tsx json",
+  "env": {
+    "NODE_ENV": "dev"
+  },
+  "ignore": [
+    "package.json",
+    "nodemon.json",
+    "node_modules/**/node_modules",
+    ".git",
+    "typings",
+    "app/pages/**/*.tsx",
+    "app/pages/**/*.less",
+    "app/pages/**/store/*",
+    "app/pages/**/views/*.ts"
+  ]
+}

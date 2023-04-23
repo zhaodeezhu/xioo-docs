@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Docs</title>
+  <!-- <script type="text/javascript" src="https://drawio.xiooshow.com/js/viewer-static.min.js"></script> -->
+
+  <!-- <script type="text/javascript" src="http://localhost:2301/js/viewer-static.min.js"></script> -->
+  <style>
+    html,
+    body {
+      /* background-color: #1d1f20; */
+      margin: 0;
+      /* height: calc(100vh); */
+    }
+
+    .animation-xioo {
+      height: calc(100vh);
+      width: calc(100vw);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      /* top: calc(50% - 50px / 2);
+      left: calc(50% - 50px / 2); */
+      perspective: 1000px;
+    }
+
+    .thing {
+      height: 50px;
+      width: 50px;
+      background-color: #E87722;
+      position: absolute;
+      box-sizing: border-box;
+      top: 0;
+      left: 0;
+    }
+
+    .thing:nth-of-type(1) {
+      /* animation: bounce 0.5s ease-in-out infinite alternate, move 4s -1s infinite; */
+      animation: move 4s -1s infinite;
+    }
+
+    .thing:nth-of-type(2) {
+      /* animation: bounce 0.5s ease-in-out infinite alternate, move 4s -2s infinite; */
+      animation: move 4s -2s infinite;
+    }
+
+    .thing:nth-of-type(3) {
+      /* animation: bounce 0.5s ease-in-out infinite alternate, move 4s -3s infinite; */
+      animation: move 4s -3s infinite;
+    }
+
+    .thing:nth-of-type(4) {
+      /* animation: bounce 0.5s ease-in-out infinite alternate, move 4s -4s infinite; */
+      animation: move 4s -4s infinite;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(0.8);
+      }
+    }
+
+    @keyframes move {
+      0% {
+        top: 0;
+        left: 0;
+        background-color: #E87722;
+      }
+
+      25% {
+        top: 0;
+        left: 50%;
+        background-color: #A4D65E;
+      }
+
+      50% {
+        top: 50%;
+        left: 50%;
+        background-color: #69B3E7;
+      }
+
+      75% {
+        top: 50%;
+        left: 0;
+        background-color: #FFC845;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="animation-xioo">
+      <div class="box">
+        <div class="thing"></div>
+        <div class="thing"></div>
+        <div class="thing"></div>
+        <div class="thing"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
